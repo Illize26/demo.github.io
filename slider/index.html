@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Slider</title>
+      <link rel="stylesheet" href="style.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+</head>
+<body>
+      <!-- navigation copied from site -->
+      <nav class="nav">
+            <span id="brand">
+                  <a href="index.html"><img src="logo.png" alt="logo" id="logo"/></a>
+            </span>
+
+            <div class="lang-switch" id="lang-switch">
+                  <button class="lang-btn" data-lang="it">IT</button>
+                  <button class="lang-btn" data-lang="en">EN</button>
+                  <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+
+            <ul id="menu">
+                  <li><a href="../site/index.html#home" data-i18n="nav.home">Home</a></li>
+                  <li><a href="../site/index.html#about" data-i18n="nav.about">Su di noi</a></li>
+                  <li><a href="../site/index.html#services" data-i18n="nav.services">Servizi</a></li>
+                  <li><a href="../site/index.html#team" data-i18n="nav.team">Il nostro team</a></li>
+                  <li><a href="../site/index.html#footer" data-i18n="nav.contact">Contatti</a></li>
+            </ul>
+
+            <div id="toggle">
+                  <div class="span">menu</div>
+            </div>
+
+      </nav>
+
+      <div id="resize">
+            <div class="close-btn">close</div>
+
+            <ul class="menu">
+                  <li><a href="../site/index.html#home" data-i18n="nav.home">Home</a></li>
+                  <li><a href="../site/index.html#about" data-i18n="nav.about">Su di noi</a></li>
+                  <li><a href="../site/index.html#services" data-i18n="nav.services">Servizi</a></li>
+                  <li><a href="../site/index.html#team" data-i18n="nav.team">Il nostro team</a></li>
+                  <li><a href="../site/index.html#footer" data-i18n="nav.contact">Contatti</a></li>
+            </ul>
+      </div>
+
+      <div class="slide active">
+            <div class="card">
+                  <div class="card-img" id="img01"></div>
+                  <div class="card-content">
+                        <p class="card-theme" data-i18n="slide1.theme">PROGETTO 1</p>
+                        <h2 class="card-header" data-i18n="slide1.title">Una casa che vive con la luce</h2>
+                        <p class="card-para" data-i18n="slide1.text">Progettata per dialogare con l'orientamento solare, Casa Aurora e un'abitazione luminosa, essenziale e accogliente.
+Grandi aperture mettono in relazione interno ed esterno, mentre gli spazi sono organizzati per offrire comfort, privacy e continuita visiva.
+Una residenza contemporanea dove la semplicita diventa qualita.</p>
+                  <!--<a class="card-link">Read</a>-->
+                  </div>
+            </div>
+      </div>
+      <div class="slide">
+            <div class="card">
+                  <div class="card-img" id="img02"></div>
+                  <div class="card-content">
+                        <p class="card-theme" data-i18n="slide2.theme">PROGETTO 2</p>
+                        <h2 class="card-header" data-i18n="slide2.title">Abitare in equilibrio</h2>
+                        <p class="card-para" data-i18n="slide2.text">Immersa nel verde, questa abitazione nasce dal desiderio di unire natura e architettura.
+Materiali naturali, volumi puliti e ampie superfici vetrate creano un ambiente armonioso e sostenibile.
+Un progetto che privilegia il benessere, la luce e la relazione con il paesaggio.</p>
+                  <!--<a class="card-link">Read</a>-->
+                  </div>
+            </div>
+      </div>
+      <div class="slide">
+            <div class="card">
+                  <div class="card-img" id="img03"></div>
+                  <div class="card-content">
+                        <p class="card-theme" data-i18n="slide3.theme">PROGETTO 3</p>
+                        <h2 class="card-header" data-i18n="slide3.title">Il nuovo modo di abitare urbano</h2>
+                        <p class="card-para" data-i18n="slide3.text">Un complesso residenziale moderno pensato per la vita contemporanea.
+Linee essenziali, spazi luminosi e soluzioni funzionali definiscono un'architettura che coniuga estetica e praticita.
+Residenza Nova offre comfort, privacy e qualita costruttiva in un contesto urbano dinamico.</p>
+                  <!--<a class="card-link">Read</a>-->
+                  </div>
+            </div>
+      </div>
+      <div class="slide">
+            <div class="card">
+                  <div class="card-img" id="img04"></div>
+                  <div class="card-content">
+                        <p class="card-theme" data-i18n="slide4.theme">PROGETTO 4</p>
+                        <h2 class="card-header" data-i18n="slide4.title">Eleganza che dura nel tempo</h2>
+                        <p class="card-para" data-i18n="slide4.text">Corte Linea nasce come risposta a un'idea di abitare sobria e raffinata.
+Il progetto valorizza la regolarita dei volumi, la qualita dei materiali e la chiarezza distributiva degli spazi.
+Un condominio pensato per offrire solidita, comfort e valore nel tempo.</p>
+                  <!--<a class="card-link">Read</a>-->
+                  </div>
+            </div>
+      </div>
+
+      <div class="prevnext">
+            <button class="pn-btn" id="prev"></button>
+            <button class="pn-btn" id="next"></button>
+      </div>
+
+      <script type="text/javascript" src="i18n.js"></script>
+
+      <script type="text/javascript">
+
+var $activeSlide = $('.active'),
+$homeSlide = $(".slide"),
+$slideNavPrev = $("#prev"),
+$slideNavNext = $("#next"),
+isAnimating = false;
+
+function init() {
+  TweenMax.set($homeSlide.not($activeSlide), {autoAlpha: 0});
+  TweenMax.set($slideNavPrev, {autoAlpha: 0.2});
+}
+init();
+
+/* NEXT */
+
+function goToNextSlide(slideOut, slideIn, slideInAll) {
+
+  var t1 = new TimelineLite({
+    onComplete: function(){
+      isAnimating = false;
+    }
+  }),
+  slideOutContent = slideOut.find('.card-content'),
+  slideInContent = slideIn.find('.card-content'),
+  slideOutImg = slideOut.find('.card-img'),
+  slideInImg = slideIn.find('.card-img'),
+  index = slideIn.index(),
+  size = $homeSlide.length;
+
+  if(slideIn.length !== 0) {
+    t1
+    .set(slideIn, {autoAlpha: 1, className: '+=active'})
+    .set(slideOut, {className: '-=active'})
+    .to(slideOutContent, 0.65, {y: "+=40px", ease: Power3.easeInOut}, 0)
+    .to(slideOutImg, 0.65, {backgroundPosition :'bottom', ease: Power3.easeInOut}, 0)
+    .to(slideInAll, 1, {y: "-=100%", ease: Power3.easeInOut}, 0)
+    .fromTo(slideInContent, 0.65, {y: '-=40px'}, {y : 0, ease: Power3.easeInOut}, "-=0.7")
+    .fromTo(slideInImg, 0.65, {backgroundPosition: 'top'}, {backgroundPosition: 'bottom', ease: Power3.easeInOut}, '-=0.7');
+  }
+
+  TweenMax.set($slideNavPrev, {autoAlpha: 1});
+
+  if(index === size - 1){
+    TweenMax.to($slideNavNext, 0.3, {autoAlpha: 0.2, ease:Linear.easeNone});
+  }
+}
+
+/* PREV */
+
+function goToPrevSlide(slideOut, slideIn, slideInAll) {
+
+  var t1 = new TimelineLite({
+    onComplete: function(){
+      isAnimating = false;
+    }
+  }),
+  slideOutContent = slideOut.find('.card-content'),
+  slideInContent = slideIn.find('.card-content'),
+  slideOutImg = slideOut.find('.card-img'),
+  slideInImg = slideIn.find('.card-img'),
+  index = slideIn.index(),
+  size = $homeSlide.length;
+
+  if(slideIn.length !== 0) {
+    t1
+    .set(slideIn, {autoAlpha: 1, className: '+=active'})
+    .set(slideOut, {className: '-=active'})
+    .to(slideOutContent, 0.65, {y: "-=40px", ease: Power3.easeInOut}, 0)
+    .to(slideOutImg, 0.65, {backgroundPosition :'top', ease: Power3.easeInOut}, 0)
+    .to(slideInAll, 1, {y: "+=100%", ease: Power3.easeInOut}, 0)
+    .fromTo(slideInContent, 0.65, {y: '+=40px'}, {y : 0, ease: Power3.easeInOut}, "-=0.7")
+    .fromTo(slideInImg, 0.65, {backgroundPosition: 'bottom'}, {backgroundPosition: 'top', ease: Power3.easeInOut}, '-=0.7');
+  }
+
+  TweenMax.set($slideNavNext, {autoAlpha: 1});
+
+  if(index === 0){
+    TweenMax.to($slideNavPrev, 0.3, {autoAlpha: 0.2, ease:Linear.easeNone});
+  }
+}
+
+/* EVENTS */
+
+$slideNavNext.click(function(e) {
+  e.preventDefault();
+  if(isAnimating) return;
+  isAnimating = true;
+
+  var slideOut = $('.slide.active'),
+      slideIn = slideOut.next('.slide'),
+      slideInAll = $('.slide');
+
+  goToNextSlide(slideOut, slideIn, slideInAll);
+});
+
+$slideNavPrev.click(function(e) {
+  e.preventDefault();
+  if(isAnimating) return;
+  isAnimating = true;
+
+  var slideOut = $('.slide.active'),
+      slideIn = slideOut.prev('.slide'),
+      slideInAll = $('.slide');
+
+  goToPrevSlide(slideOut, slideIn, slideInAll);
+});
+
+// navigation behaviour from site/index.html
+$("#toggle").click(function() {
+            $(this).toggleClass('on');
+            $("#resize").toggleClass("active");
+      });
+      $("#resize ul li a").click(function() {
+            $(this).toggleClass('on');
+            $("#resize").toggleClass("active");
+      });
+      $(".close-btn").click(function() {
+            $(this).toggleClass('on');
+            $("#resize").toggleClass("active");
+      });
+
+$(function () {
+  $(document).scroll(function () {
+    var $nav = $(".nav");
+    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+  });
+});
+
+// smooth scroll for anchors
+$('a[href*="#"]')
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { 
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); 
+            $target.focus(); 
+          };
+        });
+      }
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "it": {
+    "hero": { "header": "I nostri servizi di progettazione alla vostra portata di mano" },
+    "nav": { "home": "Home", "about": "Su di noi", "services": "Servizi", "team": "Il nostro team", "contact": "Contatti" },
+    "about": { "heading": "BENVENUTI IN AESIS", "subheading": "Progettiamo spazi che danno forma al modo di vivere.", "info": "Ogni nostro lavoro nasce dall'ascolto, cresce nella funzione e si completa nella bellezza.\nCrediamo in un'architettura autentica, pensata per durare e per essere vissuta.", "projects": "I nostri Progetti" },
+    "services": { "heading": "La nostra filosofia", "item1": "Architettura che nasce dal luogo\n\nOgni progetto parte dall'ascolto del contesto.\nLuce, clima, paesaggio e persone guidano ogni scelta.", "item2": "Forma con funzione\n\nLa bellezza ha senso solo se migliora la vita quotidiana.\nOgni spazio è pensato per essere vissuto, non solo guardato.", "item3": "Costruire con verità\n\nMateriali autentici, soluzioni durevoli, processi chiari.\nNiente artifici. Solo qualità che resiste nel tempo.", "item4": "Spazi che raccontano\n\nOgni progetto esprime un'identità.\nCreiamo luoghi che emozionano, accolgono e restano nella memoria." },
+    "team": { "heading": "Il nostro team", "member1": { "name": "Diego de la Torre", "title": "Fondatore & CEO" }, "member2": { "name": "Adriana Aquino", "title": "Co-fondatrice" } },
+    "footer": { "city": "Milano", "street": "Via Esempio 8", "quote": "Fai un preventivo" }
+  },
+  "en": {
+    "hero": { "header": "Our design services at your fingertips" },
+    "nav": { "home": "Home", "about": "About", "services": "Services", "team": "Our team", "contact": "Contact" },
+    "about": { "heading": "WELCOME TO AESIS", "subheading": "We design spaces that shape the way of living.", "info": "Every project starts from listening, grows in function and is completed in beauty.\nWe believe in authentic architecture, designed to last and to be lived in.", "projects": "Our Projects" },
+    "services": { "heading": "Our philosophy", "item1": "Architecture born from the place\n\nEvery project starts from listening to the context.\nLight, climate, landscape and people guide every choice.", "item2": "Form with function\n\nBeauty only makes sense if it improves everyday life.\nEvery space is designed to be lived in, not just looked at.", "item3": "Building with truth\n\nAuthentic materials, durable solutions, clear processes.\nNo artifices. Only quality that withstands time.", "item4": "Spaces that tell\n\nEach project expresses an identity.\nWe create places that move, welcome and remain in memory." },
+    "team": { "heading": "Our team", "member1": { "name": "Diego de la Torre", "title": "Founder & CEO" }, "member2": { "name": "Adriana Aquino", "title": "Co-founder" } },
+    "footer": { "city": "Milan", "street": "Example Street 8", "quote": "Request a quote" }
+  },
+  "es": {
+    "hero": { "header": "Nuestros servicios de diseño a tu alcance" },
+    "nav": { "home": "Inicio", "about": "Sobre nosotros", "services": "Servicios", "team": "Nuestro equipo", "contact": "Contacto" },
+    "about": { "heading": "BIENVENIDOS A AESIS", "subheading": "Diseñamos espacios que dan forma a la forma de vivir.", "info": "Cada proyecto nace de la escucha, crece en función y se completa en la belleza.\nCreemos en una arquitectura auténtica, diseñada para durar y para ser vivida.", "projects": "Nuestros Proyectos" },
+    "services": { "heading": "Nuestra filosofía", "item1": "Arquitectura que nace del lugar\n\nCada proyecto parte de la escucha del contexto.\nLa luz, el clima, el paisaje y las personas guían cada elección.", "item2": "Forma con función\n\nLa belleza solo tiene sentido si mejora la vida cotidiana.\nCada espacio está pensado para ser vivido, no solo mirado.", "item3": "Construir con verdad\n\nMateriales auténticos, soluciones duraderas, procesos claros.\nSin artificios. Solo calidad que resiste en el tiempo.", "item4": "Espacios que cuentan\n\nCada proyecto expresa una identidad.\nCreamos lugares que emocionan, acogen y permanecen en la memoria." },
+    "team": { "heading": "Nuestro equipo", "member1": { "name": "Diego de la Torre", "title": "Fundador & CEO" }, "member2": { "name": "Adriana Aquino", "title": "Co-fundadora" } },
+    "footer": { "city": "Milán", "street": "Calle Ejemplo 8", "quote": "Solicita un presupuesto" }
+  }
+}
