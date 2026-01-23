@@ -70,6 +70,16 @@ video {
             font-size: 34px !important;
             text-align: center;
       }
+
+      button {
+              background: none;
+              border: .3pt solid black;
+              text-transform: uppercase !important;
+              font-size: 4px !important;
+              letter-spacing: 2px;
+              color: white !important;
+              padding: 6px 13px;
+      }
 }
 
 /*--------------- navigazione --------------- */
