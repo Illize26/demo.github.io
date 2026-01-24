@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
       <meta charset="UTF-8">
@@ -25,7 +25,7 @@
                   <li><a href="../site/index.html#footer" data-i18n="nav.contact">Contatti</a></li>
                   <!-- language selector dropdown -->
                   <li class="lang-dropdown">
-                        <button class="lang-current" id="lang-current-desktop">IT ?</button>
+                        <button class="lang-current" id="lang-current-desktop">IT ▼</button>
                         <ul class="lang-menu">
                               <li><a href="#" class="lang-btn" data-lang="it">IT</a></li>
                               <li><a href="#" class="lang-btn" data-lang="en">EN</a></li>
@@ -269,7 +269,7 @@ $('.lang-btn').on('click', function(e) {
       
       // Update the current language display (desktop dropdown only)
       if (dropdown.length) {
-            dropdown.find('.lang-current').text(lang + ' ?');
+            dropdown.find('.lang-current').text(lang + ' ▼');
             dropdown.removeClass('active');
       }
       
@@ -283,7 +283,7 @@ $('.lang-btn').on('click', function(e) {
 // Set initial language display
 $(function() {
       var currentLang = (localStorage.getItem('lang') || 'it').toUpperCase();
-      $('.lang-current').text(currentLang + ' ?');
+      $('.lang-current').text(currentLang + ' ▼');
 });
 
 // smooth scroll for anchors

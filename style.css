@@ -145,23 +145,25 @@ video {
       transition: all 500ms ease-out;
 }
 
-/* Language dropdown styles */
+/* Language dropdown styles (desktop only) */
 .lang-dropdown {
       position: relative;
+      line-height: normal;
 }
 
 .lang-current {
       background: none;
       border: 1px solid rgba(255, 255, 255, 0.3);
       color: #fff;
-      padding: 8px 16px;
-      font-size: 13px;
+      padding: 6px 12px;
+      font-size: 12px;
       font-family: Poppins !important;
       text-transform: uppercase;
       letter-spacing: 1px;
       cursor: pointer;
       transition: all 0.3s ease;
       border-radius: 4px;
+      line-height: 1.2;
 }
 
 .lang-current:hover {
@@ -174,9 +176,9 @@ video {
       top: 100%;
       right: 0;
       background: #161616;
-      min-width: 100px;
+      min-width: 90px;
       list-style: none;
-      padding: 8px 0;
+      padding: 6px 0;
       margin: 5px 0 0 0;
       border-radius: 4px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -203,10 +205,10 @@ video {
 
 .lang-menu li a {
       display: block;
-      padding: 10px 20px;
+      padding: 8px 16px;
       color: #fff !important;
       text-decoration: none;
-      font-size: 13px !important;
+      font-size: 12px !important;
       transition: all 0.3s ease;
 }
 
