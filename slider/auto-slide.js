@@ -1,6 +1,6 @@
 /**
  * Mobile Auto-Slide Module for Slider
- * Automatically advances slides on mobile devices
+ * Automatically advances slides on mobile devices (ping-pong pattern)
  */
 (function() {
   'use strict';
@@ -9,6 +9,7 @@
   var autoSlideInterval = 5000; // 5 seconds
   var isMobile = window.innerWidth <= 900;
   var isAutoSliding = false;
+  var direction = 'forward'; // 'forward' or 'backward'
 
   // Initialize autoplay for mobile
   $(function() {
@@ -42,7 +43,7 @@
   });
 
   /**
-   * Start automatic slide advancement
+   * Start automatic slide advancement (ping-pong pattern)
    */
   function startAutoSlide() {
     if (isAutoSliding) return;
@@ -52,16 +53,44 @@
       if (window.sliderAnimating) return;
       
       var $activeSlide = $('.slide.active');
-      var $nextSlide = $activeSlide.next('.slide');
+      var $nextSlide, $prevSlide;
       
-      // If last slide, go to first
-      if (!$nextSlide.length) {
-        $nextSlide = $('.slide').first();
-      }
-      
-      if ($nextSlide.length && typeof window.goToNextSlide === 'function') {
-        window.sliderAnimating = true;
-        window.goToNextSlide($activeSlide, $nextSlide, $('.slide'));
+      if (direction === 'forward') {
+        // Going forward
+        $nextSlide = $activeSlide.next('.slide');
+        
+        if ($nextSlide.length) {
+          // Move to next slide
+          window.sliderAnimating = true;
+          window.goToNextSlide($activeSlide, $nextSlide, $('.slide'));
+        } else {
+          // Reached the end, change direction to backward
+          direction = 'backward';
+          $prevSlide = $activeSlide.prev('.slide');
+          
+          if ($prevSlide.length) {
+            window.sliderAnimating = true;
+            window.goToPrevSlide($activeSlide, $prevSlide, $('.slide'));
+          }
+        }
+      } else {
+        // Going backward
+        $prevSlide = $activeSlide.prev('.slide');
+        
+        if ($prevSlide.length) {
+          // Move to previous slide
+          window.sliderAnimating = true;
+          window.goToPrevSlide($activeSlide, $prevSlide, $('.slide'));
+        } else {
+          // Reached the beginning, change direction to forward
+          direction = 'forward';
+          $nextSlide = $activeSlide.next('.slide');
+          
+          if ($nextSlide.length) {
+            window.sliderAnimating = true;
+            window.goToNextSlide($activeSlide, $nextSlide, $('.slide'));
+          }
+        }
       }
     }, autoSlideInterval);
   }
@@ -74,10 +103,14 @@
       clearInterval(autoSlideTimer);
       autoSlideTimer = null;
       isAutoSliding = false;
+      // Reset direction to forward when stopped
+      direction = 'forward';
     }
   }
 
-  // Expose stop function
+  // Expose functions
   window.stopAutoSlide = stopAutoSlide;
+  window.startAutoSlide = startAutoSlide;
 
 })();
+
