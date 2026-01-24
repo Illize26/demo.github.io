@@ -227,6 +227,39 @@ $slideNavPrev.click(function(e) {
   goToPrevSlide(slideOut, slideIn, slideInAll);
 });
 
+// Mouse wheel scroll navigation
+var wheelTimeout;
+$(document).on('wheel', function(e) {
+  if(isAnimating) return;
+  
+  clearTimeout(wheelTimeout);
+  wheelTimeout = setTimeout(function() {
+    var delta = e.originalEvent.deltaY;
+    
+    if(delta > 0) {
+      // Scroll down - go to next slide
+      var slideOut = $('.slide.active'),
+          slideIn = slideOut.next('.slide'),
+          slideInAll = $('.slide');
+      
+      if(slideIn.length) {
+        isAnimating = true;
+        goToNextSlide(slideOut, slideIn, slideInAll);
+      }
+    } else if(delta < 0) {
+      // Scroll up - go to previous slide
+      var slideOut = $('.slide.active'),
+          slideIn = slideOut.prev('.slide'),
+          slideInAll = $('.slide');
+      
+      if(slideIn.length) {
+        isAnimating = true;
+        goToPrevSlide(slideOut, slideIn, slideInAll);
+      }
+    }
+  }, 50); // Debounce delay
+});
+
 // navigation behaviour from site/index.html
 $("#toggle").click(function() {
             $(this).toggleClass('on');
