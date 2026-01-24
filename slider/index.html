@@ -118,14 +118,18 @@ Un condominio pensato per offrire solidita, comfort e valore nel tempo.</p>
       </div>
 
       <script type="text/javascript" src="i18n.js"></script>
+      <script type="text/javascript" src="../menu.js"></script>
+      <script type="text/javascript" src="menu-slider.js"></script>
 
       <script type="text/javascript">
 
 var $activeSlide = $('.active'),
 $homeSlide = $(".slide"),
 $slideNavPrev = $("#prev"),
-$slideNavNext = $("#next"),
-isAnimating = false;
+$slideNavNext = $("#next");
+
+// Global animation flag for wheel scroll integration
+window.sliderAnimating = false;
 
 function init() {
   TweenMax.set($homeSlide.not($activeSlide), {autoAlpha: 0});
@@ -135,11 +139,11 @@ init();
 
 /* NEXT */
 
-function goToNextSlide(slideOut, slideIn, slideInAll) {
+window.goToNextSlide = function(slideOut, slideIn, slideInAll) {
 
   var t1 = new TimelineLite({
     onComplete: function(){
-      isAnimating = false;
+      window.sliderAnimating = false;
     }
   }),
   slideOutContent = slideOut.find('.card-content'),
@@ -169,11 +173,11 @@ function goToNextSlide(slideOut, slideIn, slideInAll) {
 
 /* PREV */
 
-function goToPrevSlide(slideOut, slideIn, slideInAll) {
+window.goToPrevSlide = function(slideOut, slideIn, slideInAll) {
 
   var t1 = new TimelineLite({
     onComplete: function(){
-      isAnimating = false;
+      window.sliderAnimating = false;
     }
   }),
   slideOutContent = slideOut.find('.card-content'),
@@ -205,149 +209,28 @@ function goToPrevSlide(slideOut, slideIn, slideInAll) {
 
 $slideNavNext.click(function(e) {
   e.preventDefault();
-  if(isAnimating) return;
-  isAnimating = true;
+  if(window.sliderAnimating) return;
+  window.sliderAnimating = true;
 
   var slideOut = $('.slide.active'),
       slideIn = slideOut.next('.slide'),
       slideInAll = $('.slide');
 
-  goToNextSlide(slideOut, slideIn, slideInAll);
+  window.goToNextSlide(slideOut, slideIn, slideInAll);
 });
 
 $slideNavPrev.click(function(e) {
   e.preventDefault();
-  if(isAnimating) return;
-  isAnimating = true;
+  if(window.sliderAnimating) return;
+  window.sliderAnimating = true;
 
   var slideOut = $('.slide.active'),
       slideIn = slideOut.prev('.slide'),
       slideInAll = $('.slide');
 
-  goToPrevSlide(slideOut, slideIn, slideInAll);
+  window.goToPrevSlide(slideOut, slideIn, slideInAll);
 });
 
-// Mouse wheel scroll navigation
-var wheelTimeout;
-$(document).on('wheel', function(e) {
-  if(isAnimating) return;
-  
-  clearTimeout(wheelTimeout);
-  wheelTimeout = setTimeout(function() {
-    var delta = e.originalEvent.deltaY;
-    
-    if(delta > 0) {
-      // Scroll down - go to next slide
-      var slideOut = $('.slide.active'),
-          slideIn = slideOut.next('.slide'),
-          slideInAll = $('.slide');
-      
-      if(slideIn.length) {
-        isAnimating = true;
-        goToNextSlide(slideOut, slideIn, slideInAll);
-      }
-    } else if(delta < 0) {
-      // Scroll up - go to previous slide
-      var slideOut = $('.slide.active'),
-          slideIn = slideOut.prev('.slide'),
-          slideInAll = $('.slide');
-      
-      if(slideIn.length) {
-        isAnimating = true;
-        goToPrevSlide(slideOut, slideIn, slideInAll);
-      }
-    }
-  }, 50); // Debounce delay
-});
-
-// navigation behaviour from site/index.html
-$("#toggle").click(function() {
-            $(this).toggleClass('on');
-            $("#resize").toggleClass("active");
-      });
-      $("#resize ul li a").click(function() {
-            $(this).toggleClass('on');
-            $("#resize").toggleClass("active");
-      });
-      $(".close-btn").click(function() {
-            $(this).toggleClass('on');
-            $("#resize").toggleClass("active");
-      });
-
-$(function () {
-  $(document).scroll(function () {
-    var $nav = $(".nav");
-    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
-  });
-});
-
-// Language dropdown functionality (desktop only)
-$('.lang-dropdown').on('click', '.lang-current', function(e) {
-      e.stopPropagation();
-      $(this).closest('.lang-dropdown').toggleClass('active');
-});
-
-// Close dropdown when clicking outside
-$(document).on('click', function(e) {
-      if (!$(e.target).closest('.lang-dropdown').length) {
-            $('.lang-dropdown').removeClass('active');
-      }
-});
-
-// Update dropdown text when language changes
-$('.lang-btn').on('click', function(e) {
-      e.preventDefault();
-      var lang = $(this).data('lang').toUpperCase();
-      var dropdown = $(this).closest('.lang-dropdown');
-      
-      // Update the current language display (desktop dropdown only)
-      if (dropdown.length) {
-            dropdown.find('.lang-current').text(lang + ' ▼');
-            dropdown.removeClass('active');
-      }
-      
-      // Mark as active
-      $('.lang-btn').removeClass('active');
-      $(this).addClass('active');
-      
-      // The i18n.js will handle the actual language change
-});
-
-// Set initial language display
-$(function() {
-      var currentLang = (localStorage.getItem('lang') || 'it').toUpperCase();
-      $('.lang-current').text(currentLang + ' ▼');
-});
-
-// smooth scroll for anchors
-$('a[href*="#"]')
-  .not('[href="#"]')
-  .not('[href="#0"]')
-  .click(function(event) {
-    if (
-      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-      && 
-      location.hostname == this.hostname
-    ) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      if (target.length) {
-        event.preventDefault();
-        $('html, body').animate({
-          scrollTop: target.offset().top
-        }, 1000, function() {
-          var $target = $(target);
-          $target.focus();
-          if ($target.is(":focus")) { 
-            return false;
-          } else {
-            $target.attr('tabindex','-1'); 
-            $target.focus(); 
-          };
-        });
-      }
-    }
-  });
 </script>
 </body>
 </html>

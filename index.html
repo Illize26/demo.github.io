@@ -442,107 +442,10 @@
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="i18n.js"></script>
+<script src="menu.js"></script>
 <script>
-
-// navigazione inizia qui
-$("#toggle").click(function() {
-            $(this).toggleClass('on');
-            $("#resize").toggleClass("active");
-      });
-      $("#resize ul li a").click(function() {
-            $(this).toggleClass('on');
-            $("#resize").toggleClass("active");
-      });
-      $(".close-btn").click(function() {
-            $(this).toggleClass('on');
-            $("#resize").toggleClass("active");
-      });
-
-$(function () {
-  $(document).scroll(function () {
-    var $nav = $(".nav");
-    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
-  });
-});
-
+// Initialize WOW animations
 new WOW().init();
-
-// Language dropdown functionality
-$('.lang-dropdown').on('click', '.lang-current', function(e) {
-      e.stopPropagation();
-      $(this).closest('.lang-dropdown').toggleClass('active');
-});
-
-// Close dropdown when clicking outside
-$(document).on('click', function(e) {
-      if (!$(e.target).closest('.lang-dropdown').length) {
-            $('.lang-dropdown').removeClass('active');
-      }
-});
-
-// Update dropdown text when language changes
-$('.lang-btn').on('click', function(e) {
-      e.preventDefault();
-      var lang = $(this).data('lang').toUpperCase();
-      var dropdown = $(this).closest('.lang-dropdown');
-      
-      // Update the current language display
-      dropdown.find('.lang-current').text(lang + ' ▼');
-      
-      // Mark as active
-      dropdown.find('.lang-btn').removeClass('active');
-      $(this).addClass('active');
-      
-      // Close dropdown
-      dropdown.removeClass('active');
-      
-      // The i18n.js will handle the actual language change
-});
-
-// Set initial language display
-$(function() {
-      var currentLang = (localStorage.getItem('lang') || 'it').toUpperCase();
-      $('.lang-current').text(currentLang + ' ▼');
-});
-
-// Seleziona tutti i link con hash
-$('a[href*="#"]')
-  // Rimuovi i link che non puntano a nulla
-  .not('[href="#"]')
-  .not('[href="#0"]')
-  .click(function(event) {
-    // Link nella stessa pagina
-    if (
-      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-      && 
-      location.hostname == this.hostname
-    ) {
-      // Determina l'elemento verso cui scorrere
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      // Esiste il target dello scroll?
-      if (target.length) {
-        // Previeni il comportamento di default solo se l'animazione avverrà
-        event.preventDefault();
-        $('html, body').animate({
-          scrollTop: target.offset().top
-        }, 1000, function() {
-          // Callback dopo l'animazione
-          // È necessario cambiare il focus!
-          var $target = $(target);
-          $target.focus();
-          if ($target.is(":focus")) { // Verifica se il target è stato messo a fuoco
-            return false;
-          } else {
-            $target.attr('tabindex','-1'); // Aggiunge tabindex per elementi non focalizzabili
-            $target.focus(); // Imposta nuovamente il focus
-          };
-        });
-      }
-    }
-  });
-
-
 </script>
 </body>
 </html>
