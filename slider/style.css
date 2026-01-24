@@ -157,16 +157,24 @@ button {
       right: 40px;
       top: 20px;
       font-weight: 300;
-      color: #0b468d;
+      color: #fff;
       text-transform: uppercase;
       letter-spacing: 2px;
       z-index: 10001;
-      width: 30px;
-      height: 30px;
+      width: auto;
+      height: auto;
+      padding: 8px 12px;
+      background: rgba(22, 22, 22, 0.9);
+      border-radius: 4px;
       float: right;
       transition: all 0.3s ease-out;
       visibility: hidden;
       opacity: 0;
+      cursor: pointer;
+}
+
+#toggle:hover {
+      background: rgba(11, 70, 141, 0.9);
 }
 
 .close-btn {
