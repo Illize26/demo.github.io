@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
       <meta charset="UTF-8">
@@ -50,13 +50,6 @@
                         <a href="index.html"><img src="logo.png" alt="logo" id="logo"/></a>
                   </span>
 
-                   <!-- language selector -->
-                    <div class="lang-switch" id="lang-switch">
-                          <button class="lang-btn" data-lang="it">IT</button>
-                          <button class="lang-btn" data-lang="en">EN</button>
-                          <button class="lang-btn" data-lang="es">ES</button>
-                    </div>
-
 
                   <ul id="menu">
                         <li><a href="#home" data-i18n="nav.home">Home</a></li>
@@ -64,6 +57,15 @@
                         <li><a href="#services" data-i18n="nav.services">Servizi</a></li>
                         <li><a href="#team" data-i18n="nav.team">Il nostro team</a></li>
                         <li><a href="#footer" data-i18n="nav.contact">Contatti</a></li>
+                         <!-- language selector dropdown -->
+                         <li class="lang-dropdown">
+                              <button class="lang-current" id="lang-current-desktop">IT ▼</button>
+                              <ul class="lang-menu">
+                                    <li><a href="#" class="lang-btn" data-lang="it">IT</a></li>
+                                    <li><a href="#" class="lang-btn" data-lang="en">EN</a></li>
+                                    <li><a href="#" class="lang-btn" data-lang="es">ES</a></li>
+                              </ul>
+                        </li>
                   </ul>
 
                   <div id="toggle">
@@ -81,6 +83,14 @@
                         <li><a href="#services" data-i18n="nav.services">Servizi</a></li>
                         <li><a href="#team" data-i18n="nav.team">Il nostro team</a></li>
                         <li><a href="#contact" data-i18n="nav.contact">Contatti</a></li>
+                         <!-- language selector dropdown -->
+                         <li>
+                                <div class="lang-switch" id="lang-switch">
+                                      <button class="lang-btn" data-lang="it">IT</button>
+                                      <button class="lang-btn" data-lang="en">EN</button>
+                                      <button class="lang-btn" data-lang="es">ES</button>
+                                </div>
+                          </li>
                   </ul>
             </div>
 
@@ -241,7 +251,40 @@
                                           </div>
                                     </div>
 
+                                    <div class="col-md-4"></div>
+
+                                <div class="col-md-2 wow fadeInUp" data-wow-delay="0.5s">
+                                    <div class="team-member">
+                                          <div class="team-img team-one"></div>
+                                    </div>
+                                    <div class="team-title">
+                                          <h5 data-i18n="team.member1.name">Diego de la Torre</h5>
+                                          <span data-i18n="team.member1.title">CEO</span>
+                                    </div>
+                              </div>
+
+                              <div class="col-md-2 wow fadeInUp" data-wow-delay="0.6s">
+                                          <div class="team-member">
+                                                <div class="team-img team-two"></div>
+                                          </div>
+                                          <div class="team-title">
+                                                <h5 data-i18n="team.member2.name">Adriana Aquino</h5>
+                                                <span data-i18n="team.member2.title">CEO</span>
+                                          </div>
+                              </div>
+
+                              <div class="col-md-2 wow fadeInUp" data-wow-delay="0.6s">
+                                          <div class="team-member">
+                                                <div class="team-img team-two"></div>
+                                          </div>
+                                          <div class="team-title">
+                                                <h5 data-i18n="team.member2.name">Adriana Aquino</h5>
+                                                <span data-i18n="team.member2.title">CEO</span>
+                                          </div>
+                              </div>
+
                         </div>
+
 
                   </div>
 
@@ -424,6 +467,44 @@ $(function () {
 
 new WOW().init();
 
+// Language dropdown functionality
+$('.lang-dropdown').on('click', '.lang-current', function(e) {
+      e.stopPropagation();
+      $(this).closest('.lang-dropdown').toggleClass('active');
+});
+
+// Close dropdown when clicking outside
+$(document).on('click', function(e) {
+      if (!$(e.target).closest('.lang-dropdown').length) {
+            $('.lang-dropdown').removeClass('active');
+      }
+});
+
+// Update dropdown text when language changes
+$('.lang-btn').on('click', function(e) {
+      e.preventDefault();
+      var lang = $(this).data('lang').toUpperCase();
+      var dropdown = $(this).closest('.lang-dropdown');
+      
+      // Update the current language display
+      dropdown.find('.lang-current').text(lang + ' ▼');
+      
+      // Mark as active
+      dropdown.find('.lang-btn').removeClass('active');
+      $(this).addClass('active');
+      
+      // Close dropdown
+      dropdown.removeClass('active');
+      
+      // The i18n.js will handle the actual language change
+});
+
+// Set initial language display
+$(function() {
+      var currentLang = (localStorage.getItem('lang') || 'it').toUpperCase();
+      $('.lang-current').text(currentLang + ' ▼');
+});
+
 // Seleziona tutti i link con hash
 $('a[href*="#"]')
   // Rimuovi i link che non puntano a nulla
@@ -441,16 +522,16 @@ $('a[href*="#"]')
       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
       // Esiste il target dello scroll?
       if (target.length) {
-        // Previeni il comportamento di default solo se l'animazione avverr�
+        // Previeni il comportamento di default solo se l'animazione avverrà
         event.preventDefault();
         $('html, body').animate({
           scrollTop: target.offset().top
         }, 1000, function() {
           // Callback dopo l'animazione
-          // � necessario cambiare il focus!
+          // È necessario cambiare il focus!
           var $target = $(target);
           $target.focus();
-          if ($target.is(":focus")) { // Verifica se il target � stato messo a fuoco
+          if ($target.is(":focus")) { // Verifica se il target è stato messo a fuoco
             return false;
           } else {
             $target.attr('tabindex','-1'); // Aggiunge tabindex per elementi non focalizzabili

@@ -16,11 +16,6 @@
                   <a href="index.html"><img src="logo.png" alt="logo" id="logo"/></a>
             </span>
 
-            <div class="lang-switch" id="lang-switch">
-                  <button class="lang-btn" data-lang="it">IT</button>
-                  <button class="lang-btn" data-lang="en">EN</button>
-                  <button class="lang-btn" data-lang="es">ES</button>
-            </div>
 
             <ul id="menu">
                   <li><a href="../site/index.html#home" data-i18n="nav.home">Home</a></li>
@@ -28,6 +23,15 @@
                   <li><a href="../site/index.html#services" data-i18n="nav.services">Servizi</a></li>
                   <li><a href="../site/index.html#team" data-i18n="nav.team">Il nostro team</a></li>
                   <li><a href="../site/index.html#footer" data-i18n="nav.contact">Contatti</a></li>
+                  <!-- language selector dropdown -->
+                  <li class="lang-dropdown">
+                        <button class="lang-current" id="lang-current-desktop">IT ?</button>
+                        <ul class="lang-menu">
+                              <li><a href="#" class="lang-btn" data-lang="it">IT</a></li>
+                              <li><a href="#" class="lang-btn" data-lang="en">EN</a></li>
+                              <li><a href="#" class="lang-btn" data-lang="es">ES</a></li>
+                        </ul>
+                  </li>
             </ul>
 
             <div id="toggle">
@@ -45,6 +49,13 @@
                   <li><a href="../site/index.html#services" data-i18n="nav.services">Servizi</a></li>
                   <li><a href="../site/index.html#team" data-i18n="nav.team">Il nostro team</a></li>
                   <li><a href="../site/index.html#footer" data-i18n="nav.contact">Contatti</a></li>
+                  <li>
+                        <div class="lang-switch" id="lang-switch">
+                              <button class="lang-btn" data-lang="it">IT</button>
+                              <button class="lang-btn" data-lang="en">EN</button>
+                              <button class="lang-btn" data-lang="es">ES</button>
+                        </div>
+                  </li>
             </ul>
       </div>
 
@@ -235,6 +246,44 @@ $(function () {
     var $nav = $(".nav");
     $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
   });
+});
+
+// Language dropdown functionality (desktop only)
+$('.lang-dropdown').on('click', '.lang-current', function(e) {
+      e.stopPropagation();
+      $(this).closest('.lang-dropdown').toggleClass('active');
+});
+
+// Close dropdown when clicking outside
+$(document).on('click', function(e) {
+      if (!$(e.target).closest('.lang-dropdown').length) {
+            $('.lang-dropdown').removeClass('active');
+      }
+});
+
+// Update dropdown text when language changes
+$('.lang-btn').on('click', function(e) {
+      e.preventDefault();
+      var lang = $(this).data('lang').toUpperCase();
+      var dropdown = $(this).closest('.lang-dropdown');
+      
+      // Update the current language display (desktop dropdown only)
+      if (dropdown.length) {
+            dropdown.find('.lang-current').text(lang + ' ?');
+            dropdown.removeClass('active');
+      }
+      
+      // Mark as active
+      $('.lang-btn').removeClass('active');
+      $(this).addClass('active');
+      
+      // The i18n.js will handle the actual language change
+});
+
+// Set initial language display
+$(function() {
+      var currentLang = (localStorage.getItem('lang') || 'it').toUpperCase();
+      $('.lang-current').text(currentLang + ' ?');
 });
 
 // smooth scroll for anchors
