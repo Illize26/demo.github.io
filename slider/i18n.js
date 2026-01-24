@@ -8,7 +8,7 @@
     "slide1": {
       "theme": "PROGETTO 1",
       "title": "Una casa che vive con la luce",
-      "text": "Progettata per dialogare con l'orientamento solare, Casa Aurora è un'abitazione luminosa, essenziale e accogliente.\nGrandi aperture mettono in relazione interno ed esterno, mentre gli spazi sono organizzati per offrire comfort, privacy e continuità visiva.\nUna residenza contemporanea dove la semplicità diventa qualità."
+      "text": "Progettata per dialogare con l'orientamento solare, Casa Aurora e' un'abitazione luminosa, essenziale e accogliente.\nGrandi aperture mettono in relazione interno ed esterno, mentre gli spazi sono organizzati per offrire comfort, privacy e continuita' visiva.\nUna residenza contemporanea dove la semplicita' diventa qualita'."
     },
     "slide2": {
       "theme": "PROGETTO 2",
@@ -18,12 +18,12 @@
     "slide3": {
       "theme": "PROGETTO 3",
       "title": "Il nuovo modo di abitare urbano",
-      "text": "Un complesso residenziale moderno pensato per la vita contemporanea.\nLinee essenziali, spazi luminosi e soluzioni funzionali definiscono un'architettura che coniuga estetica e praticità.\nResidenza Nova offre comfort, privacy e qualità costruttiva in un contesto urbano dinamico."
+      "text": "Un complesso residenziale moderno pensato per la vita contemporanea.\nLinee essenziali, spazi luminosi e soluzioni funzionali definiscono un'architettura che coniuga estetica e praticita'.\nResidenza Nova offre comfort, privacy e qualita' costruttiva in un contesto urbano dinamico."
     },
     "slide4": {
       "theme": "PROGETTO 4",
       "title": "Eleganza che dura nel tempo",
-      "text": "Corte Linea nasce come risposta a un'idea di abitare sobria e raffinata.\nIl progetto valorizza la regolarità dei volumi, la qualità dei materiali e la chiarezza distributiva degli spazi.\nUn condominio pensato per offrire solidità, comfort e valore nel tempo."
+      "text": "Corte Linea nasce come risposta a un'idea di abitare sobria e raffinata.\nIl progetto valorizza la regolarita' dei volumi, la qualita' dei materiali e la chiarezza distributiva degli spazi.\nUn condominio pensato per offrire solidita', comfort e valore nel tempo."
     },
     "nav": {
       "home": "Home",

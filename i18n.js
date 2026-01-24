@@ -16,9 +16,9 @@
       "services": {
         "heading": "La nostra filosofia",
         "item1": "Architettura che nasce dal luogo\n\nOgni progetto parte dall'ascolto del contesto.\nLuce, clima, paesaggio e persone guidano ogni scelta.",
-        "item2": "Forma con funzione\n\nLa bellezza ha senso solo se migliora la vita quotidiana.\nOgni spazio è pensato per essere vissuto, non solo guardato.",
-        "item3": "Costruire con verità\n\nMateriali autentici, soluzioni durevoli, processi chiari.\nNiente artifici. Solo qualità che resiste nel tempo.",
-        "item4": "Spazi che raccontano\n\nOgni progetto esprime un'identità.\nCreiamo luoghi che emozionano, accolgono e restano nella memoria."
+        "item2": "Forma con funzione\n\nLa bellezza ha senso solo se migliora la vita quotidiana.\nOgni spazio e' pensato per essere vissuto, non solo guardato.",
+        "item3": "Costruire con verita'\n\nMateriali autentici, soluzioni durevoli, processi chiari.\nNiente artifici. Solo qualita' che resiste nel tempo.",
+        "item4": "Spazi che raccontano\n\nOgni progetto esprime un'identita'.\nCreiamo luoghi che emozionano, accolgono e restano nella memoria."
       },
       "team": {
         "heading": "Il nostro team",
@@ -51,19 +51,19 @@
       "footer": { "city": "Milan", "street": "Example Street 8", "quote": "Request a quote" }
     },
     "es": {
-      "hero": { "header": "Nuestros servicios de diseño a tu alcance" },
+      "hero": { "header": "Nuestros servicios de diseno a tu alcance" },
       "nav": { "home": "Inicio", "about": "Sobre nosotros", "services": "Servicios", "team": "Nuestro equipo", "contact": "Contacto" },
       "about": {
         "heading": "BIENVENIDOS A AESIS",
-        "subheading": "Diseñamos espacios que dan forma a la forma de vivir.",
-        "info": "Cada proyecto nace de la escucha, crece en función y se completa en la belleza.\nCreemos en una arquitectura auténtica, diseñada para durar y para ser vivida.",
+        "subheading": "Disenamos espacios que dan forma a la forma de vivir.",
+        "info": "Cada proyecto nace de la escucha, crece en funcion y se completa en la belleza.\nCreemos en una arquitectura autentica, disenada para durar y para ser vivida.",
         "projects": "Nuestros Proyectos"
       },
       "services": {
-        "heading": "Nuestra filosofía",
-        "item1": "Arquitectura que nace del lugar\n\nCada progetto parte de la escucha del contexto.\nLa luz, el clima, el paisaje y las personas guían cada elección.",
-        "item2": "Forma con función\n\nLa belleza solo tiene sentido si mejora la vida cotidiana.\nCada espacio está pensado para ser vivido, no solo mirado.",
-        "item3": "Construir con verdad\n\nMateriales auténticos, soluciones duraderas, procesos claros.\nSin artificios. Solo calidad que resiste en el tiempo.",
+        "heading": "Nuestra filosofia",
+        "item1": "Arquitectura que nace del lugar\n\nCada progetto parte de la escucha del contexto.\nLa luz, el clima, el paisaje y las personas guian cada eleccion.",
+        "item2": "Forma con funcion\n\nLa belleza solo tiene sentido si mejora la vida cotidiana.\nCada espacio esta pensado para ser vivido, no solo mirado.",
+        "item3": "Construir con verdad\n\nMateriales autenticos, soluciones duraderas, procesos claros.\nSin artificios. Solo calidad que resiste en el tiempo.",
         "item4": "Espacios che raccontano\n\nCada progetto esprime una identidad.\nCreamos luoghi che emozionano, accolgono y permanecen en la memoria."
       },
       "team": {
@@ -71,7 +71,7 @@
         "member1": { "name": "Diego de la Torre", "title": "CEO" },
         "member2": { "name": "Adriana Aquino", "title": "CEO" }
       },
-      "footer": { "city": "Milán", "street": "Calle Ejemplo 8", "quote": "Solicita un presupuesto" }
+      "footer": { "city": "Milan", "street": "Calle Ejemplo 8", "quote": "Solicita un presupuesto" }
     }
   };
 
