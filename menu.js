@@ -79,7 +79,7 @@
       
       // Update the current language display (desktop dropdown only)
       if (dropdown.length) {
-        dropdown.find('.lang-current').text(lang + ' ?');
+        dropdown.find('.lang-current').text(lang);
         dropdown.removeClass('active');
       }
       
@@ -92,7 +92,7 @@
 
     // Set initial language display
     var currentLang = (localStorage.getItem('lang') || 'it').toUpperCase();
-    $('.lang-current').text(currentLang + ' ?');
+    $('.lang-current').text(currentLang);
   }
 
   /**
