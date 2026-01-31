@@ -116,15 +116,8 @@
     var closeBtn = document.querySelector('.close-btn');
     var nav = document.querySelector('.nav');
 
-    console.log('Init menu - elements found:', {
-      toggle: !!toggle,
-      resize: !!resize,
-      closeBtn: !!closeBtn
-    });
-
-    // FIX: Move close button outside #resize to avoid z-index/overflow issues
+    // Move close button outside #resize to avoid z-index/overflow issues
     if (closeBtn && resize) {
-      // Create a wrapper for close button outside resize
       var closeBtnWrapper = document.createElement('div');
       closeBtnWrapper.style.position = 'fixed';
       closeBtnWrapper.style.top = '0';
@@ -135,7 +128,6 @@
       closeBtnWrapper.style.height = '80px';
       closeBtnWrapper.className = 'close-btn-wrapper';
       
-      // Clone and move close button
       var closeBtnClone = closeBtn.cloneNode(true);
       closeBtnClone.style.position = 'relative';
       closeBtnClone.style.pointerEvents = 'auto';
@@ -145,11 +137,8 @@
       closeBtnWrapper.appendChild(closeBtnClone);
       document.body.appendChild(closeBtnWrapper);
       
-      // Remove original close button
       closeBtn.remove();
       closeBtn = closeBtnClone;
-      
-      console.log('Close button moved outside resize');
     }
 
     // Toggle mobile menu
@@ -157,10 +146,8 @@
       toggle.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        console.log('Toggle clicked - opening menu');
         resize.classList.add('active');
         
-        // Hide toggle, show close
         toggle.style.opacity = '0';
         toggle.style.visibility = 'hidden';
         toggle.style.pointerEvents = 'none';
@@ -170,7 +157,6 @@
           wrapper.style.pointerEvents = 'auto';
           closeBtn.style.opacity = '1';
           closeBtn.style.visibility = 'visible';
-          console.log('Close button shown');
         }
       });
     }
@@ -180,10 +166,8 @@
       closeBtn.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        console.log('Close button clicked - closing menu');
         resize.classList.remove('active');
         
-        // Show toggle, hide close
         if (toggle) {
           toggle.style.opacity = '1';
           toggle.style.visibility = 'visible';
@@ -194,11 +178,6 @@
         wrapper.style.pointerEvents = 'none';
         closeBtn.style.opacity = '0';
         closeBtn.style.visibility = 'hidden';
-      });
-      
-      // Debug - check if close button is clickable
-      closeBtn.addEventListener('mouseenter', function() {
-        console.log('Mouse entered close button area');
       });
     }
 
