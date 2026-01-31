@@ -175,14 +175,18 @@
       color: #fff;
       text-transform: uppercase;
       letter-spacing: 2px;
-      z-index: 2;
+      z-index: 10002;
       top: -2px;
       line-height: 80px;
       cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 #resize {
-      z-index: 2;
+      z-index: 9999;
       top: 0px;
       position: fixed;
       background: #0f0f0f;
@@ -238,12 +242,17 @@
             margin-top: 6px;
             margin-right: 4px;
             cursor: pointer;
-            z-index: 10;
+            z-index: 10000;
+            pointer-events: auto;
       }
 
       nav #brand {
             margin-left: 10px;
             z-index: 10;
+      }
+
+      #resize {
+            z-index: 9999;
       }
 
       #resize ul li a {
@@ -260,39 +269,55 @@
             display: none;
       }
 
-      /* Mobile language selector */
+      /* Mobile language selector - horizontal buttons like main index */
       #resize .lang-switch {
             display: flex;
             flex-direction: row;
-            gap: 15px;
+            gap: 12px;
             justify-content: center;
-            margin-top: 20px;
+            align-items: center;
+            margin-top: 30px;
+            padding: 0 20px;
       }
 
       #resize .lang-switch .lang-btn {
             background: none;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: #fff;
-            padding: 10px 20px;
-            font-size: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 8px 16px;
+            font-size: 16px;
             font-family: Poppins !important;
+            font-weight: 300;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             cursor: pointer;
             transition: all 0.3s ease;
             border-radius: 4px;
-            min-width: 60px;
+            min-width: 55px;
+            text-align: center;
       }
 
-      #resize .lang-switch .lang-btn:hover,
+      #resize .lang-switch .lang-btn:hover {
+            border-color: #0b468d;
+            color: #fff;
+            background: rgba(11, 70, 141, 0.2);
+      }
+      
       #resize .lang-switch .lang-btn.active {
             border-color: #0b468d;
             background: #0b468d;
             color: #fff;
+            font-weight: 500;
       }
 
       #resize li:nth-child(1) {
             margin-top: 100px;
+      }
+
+      .close-btn {
+            cursor: pointer;
+            z-index: 10000;
+            pointer-events: auto;
       }
 }
 

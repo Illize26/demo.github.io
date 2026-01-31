@@ -116,46 +116,138 @@
     var closeBtn = document.querySelector('.close-btn');
     var nav = document.querySelector('.nav');
 
+    console.log('Init menu - elements found:', {
+      toggle: !!toggle,
+      resize: !!resize,
+      closeBtn: !!closeBtn
+    });
+
+    // FIX: Move close button outside #resize to avoid z-index/overflow issues
+    if (closeBtn && resize) {
+      // Create a wrapper for close button outside resize
+      var closeBtnWrapper = document.createElement('div');
+      closeBtnWrapper.style.position = 'fixed';
+      closeBtnWrapper.style.top = '0';
+      closeBtnWrapper.style.right = '30px';
+      closeBtnWrapper.style.zIndex = '10003';
+      closeBtnWrapper.style.pointerEvents = 'none';
+      closeBtnWrapper.style.width = '100px';
+      closeBtnWrapper.style.height = '80px';
+      closeBtnWrapper.className = 'close-btn-wrapper';
+      
+      // Clone and move close button
+      var closeBtnClone = closeBtn.cloneNode(true);
+      closeBtnClone.style.position = 'relative';
+      closeBtnClone.style.pointerEvents = 'auto';
+      closeBtnClone.style.opacity = '0';
+      closeBtnClone.style.visibility = 'hidden';
+      
+      closeBtnWrapper.appendChild(closeBtnClone);
+      document.body.appendChild(closeBtnWrapper);
+      
+      // Remove original close button
+      closeBtn.remove();
+      closeBtn = closeBtnClone;
+      
+      console.log('Close button moved outside resize');
+    }
+
     // Toggle mobile menu
-    if (toggle) {
-      toggle.addEventListener('click', function() {
+    if (toggle && resize) {
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Toggle clicked - opening menu');
         resize.classList.add('active');
+        
+        // Hide toggle, show close
+        toggle.style.opacity = '0';
+        toggle.style.visibility = 'hidden';
+        toggle.style.pointerEvents = 'none';
+        
+        if (closeBtn) {
+          var wrapper = closeBtn.parentElement;
+          wrapper.style.pointerEvents = 'auto';
+          closeBtn.style.opacity = '1';
+          closeBtn.style.visibility = 'visible';
+          console.log('Close button shown');
+        }
       });
     }
 
     // Close mobile menu
-    if (closeBtn) {
-      closeBtn.addEventListener('click', function() {
+    if (closeBtn && resize) {
+      closeBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Close button clicked - closing menu');
         resize.classList.remove('active');
+        
+        // Show toggle, hide close
+        if (toggle) {
+          toggle.style.opacity = '1';
+          toggle.style.visibility = 'visible';
+          toggle.style.pointerEvents = 'auto';
+        }
+        
+        var wrapper = closeBtn.parentElement;
+        wrapper.style.pointerEvents = 'none';
+        closeBtn.style.opacity = '0';
+        closeBtn.style.visibility = 'hidden';
+      });
+      
+      // Debug - check if close button is clickable
+      closeBtn.addEventListener('mouseenter', function() {
+        console.log('Mouse entered close button area');
       });
     }
 
     // Close menu when clicking on links
-    var resizeLinks = resize.querySelectorAll('a');
-    for (var i = 0; i < resizeLinks.length; i++) {
-      resizeLinks[i].addEventListener('click', function() {
-        resize.classList.remove('active');
-      });
+    if (resize) {
+      var resizeLinks = resize.querySelectorAll('a');
+      for (var i = 0; i < resizeLinks.length; i++) {
+        resizeLinks[i].addEventListener('click', function() {
+          resize.classList.remove('active');
+          
+          // Restore toggle visibility
+          if (toggle) {
+            toggle.style.opacity = '1';
+            toggle.style.visibility = 'visible';
+            toggle.style.pointerEvents = 'auto';
+          }
+          
+          if (closeBtn) {
+            var wrapper = closeBtn.parentElement;
+            wrapper.style.pointerEvents = 'none';
+            closeBtn.style.opacity = '0';
+            closeBtn.style.visibility = 'hidden';
+          }
+        });
+      }
     }
 
     // Navbar background on scroll
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
-    });
+    if (nav) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+    }
 
     // Language dropdown toggle
     var langDropdown = document.querySelector('.lang-dropdown');
     if (langDropdown) {
       var langCurrent = langDropdown.querySelector('.lang-current');
       
-      langCurrent.addEventListener('click', function(e) {
-        e.stopPropagation();
-        langDropdown.classList.toggle('active');
-      });
+      if (langCurrent) {
+        langCurrent.addEventListener('click', function(e) {
+          e.stopPropagation();
+          langDropdown.classList.toggle('active');
+        });
+      }
 
       // Close dropdown when clicking outside
       document.addEventListener('click', function(e) {
@@ -166,7 +258,9 @@
 
       // Update current language display
       var currentLang = localStorage.getItem('lang') || 'it';
-      langCurrent.textContent = currentLang.toUpperCase();
+      if (langCurrent) {
+        langCurrent.textContent = currentLang.toUpperCase();
+      }
     }
   }
 
