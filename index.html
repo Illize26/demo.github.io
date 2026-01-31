@@ -7,6 +7,7 @@
       <title>Aesis</title>
 
       <!-- foglio di stile -->
+      <link rel="stylesheet" href="shared/navigation.css">
       <link rel="stylesheet" href="style.css">
 
       <!-- Google Fonts -->
@@ -28,6 +29,8 @@
       <a name="home"></a>
       <div class="wrapper">
 
+            <!-- Navigation Container -->
+            <div id="navigation-container"></div>
             
             <!--------------- sezione hero inizia qui --------------->
 
@@ -42,59 +45,6 @@
             </div>
 
             <!--------------- fine sezione hero --------------->
-
-            <!--------------- navigazione inizia qui --------------->
-
-            <nav class="nav">
-                  <span id="brand">
-                        <a href="index.html"><img src="logo.png" alt="logo" id="logo"/></a>
-                  </span>
-
-
-                  <ul id="menu">
-                        <li><a href="#home" data-i18n="nav.home">Home</a></li>
-                        <li><a href="#about" data-i18n="nav.about">Su di noi</a></li>
-                        <li><a href="#services" data-i18n="nav.services">Servizi</a></li>
-                        <li><a href="#team" data-i18n="nav.team">Il nostro team</a></li>
-                        <li><a href="#footer" data-i18n="nav.contact">Contatti</a></li>
-                         <!-- language selector dropdown -->
-                         <li class="lang-dropdown">
-                              <button class="lang-current" id="lang-current-desktop">IT</button>
-                              <ul class="lang-menu">
-                                    <li><a href="#" class="lang-btn" data-lang="it">IT</a></li>
-                                    <li><a href="#" class="lang-btn" data-lang="en">EN</a></li>
-                                    <li><a href="#" class="lang-btn" data-lang="es">ES</a></li>
-                              </ul>
-                        </li>
-                  </ul>
-
-                  <div id="toggle">
-                        <div class="span">menu</div>
-                  </div>
-
-            </nav>
-
-            <div id="resize">
-                  <div class="close-btn">close</div>
-
-                  <ul id="menu">
-                        <li><a href="#home" data-i18n="nav.home">Home</a></li>
-                        <li><a href="#about" data-i18n="nav.about">Su di noi</a></li>
-                        <li><a href="#services" data-i18n="nav.services">Servizi</a></li>
-                        <li><a href="#team" data-i18n="nav.team">Il nostro team</a></li>
-                        <li><a href="#contact" data-i18n="nav.contact">Contatti</a></li>
-                         <!-- language selector dropdown -->
-                         <li>
-                                <div class="lang-switch" id="lang-switch">
-                                      <button class="lang-btn" data-lang="it">IT</button>
-                                      <button class="lang-btn" data-lang="en">EN</button>
-                                      <button class="lang-btn" data-lang="es">ES</button>
-                                </div>
-                          </li>
-                  </ul>
-            </div>
-
-            <!--------------- fine navigazione --------------->
 
             <div class="content">
 
@@ -440,9 +390,11 @@
       </div>
 
 
+
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="shared/navigation.js"></script>
+<script src="shared/navigation-i18n.js"></script>
 <script src="i18n.js"></script>
-<script src="menu.js"></script>
 <script src="cookie-banner.js"></script>
 <script>
 // Initialize WOW animations
