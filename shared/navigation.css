@@ -200,11 +200,12 @@
 #resize #menu {
       height: 90px;
       position: absolute;
-      left: 45%;
-      transform: translateX(-40%);
+      left: 50%;
+      transform: translateX(-50%);
       text-align: center;
       display: table-cell;
       vertical-align: center;
+      width: 100%;
 }
 
 #resize #menu li {
@@ -253,6 +254,13 @@
 
       #resize {
             z-index: 9999;
+      }
+
+      #resize #menu {
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 600px;
       }
 
       #resize ul li a {
