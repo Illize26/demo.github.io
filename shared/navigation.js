@@ -37,6 +37,7 @@
             <li><a href="${basePath}/index.html#home" data-i18n="nav.home">Home</a></li>
             <li><a href="${basePath}/index.html#about" data-i18n="nav.about">Su di noi</a></li>
             <li><a href="${basePath}/index.html#services" data-i18n="nav.services">Servizi</a></li>
+            <li><a href="${basePath}/information/index.html" data-i18n="nav.information">Competenze</a></li>
             <li><a href="${basePath}/index.html#team" data-i18n="nav.team">Il nostro team</a></li>
             <li><a href="${basePath}/index.html#footer" data-i18n="nav.contact">Contatti</a></li>
             <li class="lang-dropdown">
@@ -61,6 +62,7 @@
             <li><a href="${basePath}/index.html#home" data-i18n="nav.home">Home</a></li>
             <li><a href="${basePath}/index.html#about" data-i18n="nav.about">Su di noi</a></li>
             <li><a href="${basePath}/index.html#services" data-i18n="nav.services">Servizi</a></li>
+            <li><a href="${basePath}/information/index.html" data-i18n="nav.information">Competenze</a></li>
             <li><a href="${basePath}/index.html#team" data-i18n="nav.team">Il nostro team</a></li>
             <li><a href="${basePath}/index.html#footer" data-i18n="nav.contact">Contatti</a></li>
             <li>

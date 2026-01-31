@@ -6,7 +6,7 @@
   var embeddedTranslations = {
     "it": {
       "hero": { "header": "I nostri servizi di progettazione alla vostra portata di mano" },
-      "nav": { "home": "Home", "about": "Su di noi", "services": "Servizi", "team": "Il nostro team", "contact": "Contatti" },
+      "nav": { "home": "Home", "about": "Su di noi", "services": "Servizi", "information": "Competenze", "team": "Il nostro team", "contact": "Contatti" },
       "about": {
         "heading": "BENVENUTI IN AESIS",
         "subheading": "Progettiamo spazi che danno forma al modo di vivere.",
@@ -29,7 +29,7 @@
     },
     "en": {
       "hero": { "header": "Our design services at your fingertips" },
-      "nav": { "home": "Home", "about": "About", "services": "Services", "team": "Our team", "contact": "Contact" },
+      "nav": { "home": "Home", "about": "About", "services": "Services", "information": "Expertise", "team": "Our team", "contact": "Contact" },
       "about": {
         "heading": "WELCOME TO AESIS",
         "subheading": "We design spaces that shape the way of living.",
@@ -52,7 +52,7 @@
     },
     "es": {
       "hero": { "header": "Nuestros servicios de diseno a tu alcance" },
-      "nav": { "home": "Inicio", "about": "Sobre nosotros", "services": "Servicios", "team": "Nuestro equipo", "contact": "Contacto" },
+      "nav": { "home": "Inicio", "about": "Sobre nosotros", "services": "Servicios", "information": "Competencias", "team": "Nuestro equipo", "contact": "Contacto" },
       "about": {
         "heading": "BIENVENIDOS A AESIS",
         "subheading": "Disenamos espacios que dan forma a la forma de vivir.",

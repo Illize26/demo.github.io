@@ -11,6 +11,7 @@
         "home": "Home",
         "about": "Su di noi",
         "services": "Servizi",
+        "information": "Competenze",
         "team": "Il nostro team",
         "contact": "Contatti"
       }
@@ -20,6 +21,7 @@
         "home": "Home",
         "about": "About",
         "services": "Services",
+        "information": "Expertise",
         "team": "Our team",
         "contact": "Contact"
       }
@@ -29,11 +31,13 @@
         "home": "Inicio",
         "about": "Sobre nosotros",
         "services": "Servicios",
+        "information": "Competencias",
         "team": "Nuestro equipo",
         "contact": "Contacto"
       }
     }
   };
+
 
   /**
    * Update language dropdown display when language changes

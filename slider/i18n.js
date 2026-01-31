@@ -25,14 +25,15 @@
       "title": "Eleganza che dura nel tempo",
       "text": "Corte Linea nasce come risposta a un'idea di abitare sobria e raffinata.\nIl progetto valorizza la regolarita' dei volumi, la qualita' dei materiali e la chiarezza distributiva degli spazi.\nUn condominio pensato per offrire solidita', comfort e valore nel tempo."
     },
-    "nav": {
-      "home": "Home",
-      "about": "Su di noi",
-      "services": "Servizi",
-      "team": "Il nostro team",
-      "contact": "Contatti"
-    }
-  },
+      "nav": {
+        "home": "Home",
+        "about": "Su di noi",
+        "services": "Servizi",
+        "information": "Competenze",
+        "team": "Il nostro team",
+        "contact": "Contatti"
+      }
+    },
   "en": {
     "slide1": {
       "theme": "PROJECT 1",
@@ -54,14 +55,15 @@
       "title": "Timeless elegance",
       "text": "Corte Linea was born as an answer to a sober and refined idea of living.\nThe project enhances the regularity of volumes, the quality of materials and the distributive clarity of spaces.\nA condominium designed to offer solidity, comfort and long-term value."
     },
-    "nav": {
-      "home": "Home",
-      "about": "About",
-      "services": "Services",
-      "team": "Our team",
-      "contact": "Contact"
-    }
-  },
+      "nav": {
+        "home": "Home",
+        "about": "About",
+        "services": "Services",
+        "information": "Expertise",
+        "team": "Our team",
+        "contact": "Contact"
+      }
+    },
   "es": {
     "slide1": {
       "theme": "PROYECTO 1",
@@ -87,6 +89,7 @@
       "home": "Inicio",
       "about": "Sobre nosotros",
       "services": "Servicios",
+      "information": "Competencias",
       "team": "Nuestro equipo",
       "contact": "Contacto"
     }
