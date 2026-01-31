@@ -273,26 +273,35 @@ html, body {
             display: none;
       }
 
-      /* Mobile dropdown adjustments */
-      #resize .lang-menu {
-            position: relative;
-            opacity: 1;
-            visibility: visible;
-            transform: none;
-            background: transparent;
-            box-shadow: none;
-            padding: 0;
+      /* Mobile language selector - same as main index */
+      #resize .lang-switch {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
       }
 
-      #resize .lang-dropdown .lang-current {
-            font-size: 24px;
-            border-color: rgba(255, 255, 255, 0.5);
-            padding: 12px 20px;
+      #resize .lang-switch .lang-btn {
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-family: Poppins !important;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            min-width: 60px;
       }
 
-      #resize .lang-menu li a {
-            font-size: 18px !important;
-            padding: 10px 0;
+      #resize .lang-switch .lang-btn:hover,
+      #resize .lang-switch .lang-btn.active {
+            border-color: #0b468d;
+            background: #0b468d;
+            color: #fff;
       }
 
       #resize li:nth-child(1) {
