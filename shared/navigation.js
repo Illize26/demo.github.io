@@ -23,6 +23,59 @@
   }
 
   /**
+   * Get navigation HTML template
+   */
+  function getNavigationTemplate(basePath) {
+    return `
+<!-- Shared Navigation Menu -->
+<nav class="nav">
+      <span id="brand">
+            <a href="${basePath}/index.html"><img src="${basePath}/logo.png" alt="logo" id="logo"/></a>
+      </span>
+
+      <ul id="menu">
+            <li><a href="${basePath}/index.html#home" data-i18n="nav.home">Home</a></li>
+            <li><a href="${basePath}/index.html#about" data-i18n="nav.about">Su di noi</a></li>
+            <li><a href="${basePath}/index.html#services" data-i18n="nav.services">Servizi</a></li>
+            <li><a href="${basePath}/index.html#team" data-i18n="nav.team">Il nostro team</a></li>
+            <li><a href="${basePath}/index.html#footer" data-i18n="nav.contact">Contatti</a></li>
+            <li class="lang-dropdown">
+                  <button class="lang-current" id="lang-current-desktop">IT</button>
+                  <ul class="lang-menu">
+                        <li><a href="#" class="lang-btn" data-lang="it">IT</a></li>
+                        <li><a href="#" class="lang-btn" data-lang="en">EN</a></li>
+                        <li><a href="#" class="lang-btn" data-lang="es">ES</a></li>
+                  </ul>
+            </li>
+      </ul>
+
+      <div id="toggle">
+            <div class="span">menu</div>
+      </div>
+</nav>
+
+<div id="resize">
+      <div class="close-btn">close</div>
+
+      <ul id="menu">
+            <li><a href="${basePath}/index.html#home" data-i18n="nav.home">Home</a></li>
+            <li><a href="${basePath}/index.html#about" data-i18n="nav.about">Su di noi</a></li>
+            <li><a href="${basePath}/index.html#services" data-i18n="nav.services">Servizi</a></li>
+            <li><a href="${basePath}/index.html#team" data-i18n="nav.team">Il nostro team</a></li>
+            <li><a href="${basePath}/index.html#footer" data-i18n="nav.contact">Contatti</a></li>
+            <li>
+                  <div class="lang-switch" id="lang-switch">
+                        <button class="lang-btn" data-lang="it">IT</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="es">ES</button>
+                  </div>
+            </li>
+      </ul>
+</div>
+`;
+  }
+
+  /**
    * Load navigation HTML and inject into page
    */
   function loadNavigation() {
@@ -34,28 +87,22 @@
       return;
     }
 
-    // Load navigation template
-    fetch(basePath + '/shared/navigation.html')
-      .then(function(response) {
-        if (!response.ok) throw new Error('Navigation template not found');
-        return response.text();
-      })
-      .then(function(html) {
-        // Replace BASE_PATH placeholder with actual base path
-        html = html.replace(/BASE_PATH/g, basePath);
-        
-        // Inject navigation
-        navContainer.innerHTML = html;
-        
-        // Initialize menu functionality
-        initializeMenu();
-        
-        // Trigger custom event for other scripts
-        document.dispatchEvent(new Event('navigationLoaded'));
-      })
-      .catch(function(error) {
-        console.error('Failed to load navigation:', error);
-      });
+    // Use embedded template instead of fetch (works in all environments)
+    var html = getNavigationTemplate(basePath);
+    navContainer.innerHTML = html;
+    
+    // Initialize menu functionality
+    initializeMenu();
+    
+    // Trigger custom event for other scripts
+    if (typeof Event === 'function') {
+      document.dispatchEvent(new Event('navigationLoaded'));
+    } else {
+      // IE fallback
+      var event = document.createEvent('Event');
+      event.initEvent('navigationLoaded', true, true);
+      document.dispatchEvent(event);
+    }
   }
 
   /**
@@ -83,11 +130,11 @@
 
     // Close menu when clicking on links
     var resizeLinks = resize.querySelectorAll('a');
-    resizeLinks.forEach(function(link) {
-      link.addEventListener('click', function() {
+    for (var i = 0; i < resizeLinks.length; i++) {
+      resizeLinks[i].addEventListener('click', function() {
         resize.classList.remove('active');
       });
-    });
+    }
 
     // Navbar background on scroll
     window.addEventListener('scroll', function() {
@@ -114,6 +161,10 @@
           langDropdown.classList.remove('active');
         }
       });
+
+      // Update current language display
+      var currentLang = localStorage.getItem('lang') || 'it';
+      langCurrent.textContent = currentLang.toUpperCase();
     }
   }
 
@@ -127,3 +178,4 @@
   }
 
 })();
+
