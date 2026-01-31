@@ -1,0 +1,12 @@
+<!-- SVG Placeholder for Plan 3 - Technical Details -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect fill="#f0f0f0" width="800" height="600"/>
+  <circle fill="none" stroke="#333" stroke-width="3" cx="400" cy="300" r="150"/>
+  <line stroke="#0b468d" stroke-width="2" x1="250" y1="300" x2="550" y2="300"/>
+  <line stroke="#0b468d" stroke-width="2" x1="400" y1="150" x2="400" y2="450"/>
+  <rect fill="none" stroke="#333" stroke-width="2" x="150" y="100" width="100" height="100"/>
+  <rect fill="none" stroke="#333" stroke-width="2" x="550" y="100" width="100" height="100"/>
+  <rect fill="none" stroke="#333" stroke-width="2" x="150" y="400" width="100" height="100"/>
+  <rect fill="none" stroke="#333" stroke-width="2" x="550" y="400" width="100" height="100"/>
+  <text x="400" y="550" font-family="Arial" font-size="24" fill="#333" text-anchor="middle">DETTAGLI COSTRUTTIVI</text>
+</svg>

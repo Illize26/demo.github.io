@@ -26,11 +26,140 @@
       <div id="navigation-container"></div>
 
       <div class="content">
-            <!-- Contenuto placeholder -->
-            <section style="min-height: 100vh; padding: 140px 20px; background: #fff;">
+            <!-- Hero Section -->
+            <section class="hero-info">
                   <div class="container">
-                        <h1>Information Page</h1>
-                        <p>Contenuto in arrivo...</p>
+                        <div class="row">
+                              <div class="col-md-12">
+                                    <h1 class="hero-title" data-i18n="info.hero.title">Competenze Architettoniche</h1>
+                                    <p class="hero-subtitle" data-i18n="info.hero.subtitle">Dal concept alla realizzazione, seguiamo ogni fase del progetto con professionalita' e creativita'</p>
+                              </div>
+                        </div>
+                  </div>
+            </section>
+
+            <!-- Services Section -->
+            <section class="services-info">
+                  <div class="container">
+                        <h2 class="section-title" data-i18n="info.services.title">I Nostri Servizi</h2>
+                        
+                        <div class="row services-grid">
+                              <div class="col-md-4 service-card">
+                                    <div class="service-icon">
+                                          <ion-icon name="cube-outline"></ion-icon>
+                                    </div>
+                                    <h3 data-i18n="info.services.item1.title">Progettazione Architettonica</h3>
+                                    <p data-i18n="info.services.item1.desc">Concept design, planimetrie, prospetti e sezioni tecniche per edifici residenziali e commerciali</p>
+                              </div>
+
+                              <div class="col-md-4 service-card">
+                                    <div class="service-icon">
+                                          <ion-icon name="construct-outline"></ion-icon>
+                                    </div>
+                                    <h3 data-i18n="info.services.item2.title">Direzione Lavori</h3>
+                                    <p data-i18n="info.services.item2.desc">Supervisione cantiere, coordinamento imprese e controllo qualita' durante l'esecuzione</p>
+                              </div>
+
+                              <div class="col-md-4 service-card">
+                                    <div class="service-icon">
+                                          <ion-icon name="color-palette-outline"></ion-icon>
+                                    </div>
+                                    <h3 data-i18n="info.services.item3.title">Interior Design</h3>
+                                    <p data-i18n="info.services.item3.desc">Progettazione d'interni, scelta materiali e coordinamento arredi per spazi funzionali ed estetici</p>
+                              </div>
+                        </div>
+                  </div>
+            </section>
+
+            <!-- Process Section -->
+            <section class="process-section">
+                  <div class="container">
+                        <h2 class="section-title" data-i18n="info.process.title">Il Nostro Processo</h2>
+                        
+                        <div class="process-timeline">
+                              <div class="process-step">
+                                    <div class="step-number">01</div>
+                                    <h3 data-i18n="info.process.step1.title">Analisi e Concept</h3>
+                                    <p data-i18n="info.process.step1.desc">Studio delle esigenze del cliente, analisi del sito e sviluppo del concept iniziale</p>
+                              </div>
+
+                              <div class="process-step">
+                                    <div class="step-number">02</div>
+                                    <h3 data-i18n="info.process.step2.title">Progetto Preliminare</h3>
+                                    <p data-i18n="info.process.step2.desc">Planimetrie, prospetti e rendering 3D per visualizzare l'idea progettuale</p>
+                              </div>
+
+                              <div class="process-step">
+                                    <div class="step-number">03</div>
+                                    <h3 data-i18n="info.process.step3.title">Progetto Esecutivo</h3>
+                                    <p data-i18n="info.process.step3.desc">Elaborati tecnici dettagliati, computi metrici e documentazione per il cantiere</p>
+                              </div>
+
+                              <div class="process-step">
+                                    <div class="step-number">04</div>
+                                    <h3 data-i18n="info.process.step4.title">Realizzazione</h3>
+                                    <p data-i18n="info.process.step4.desc">Direzione lavori, coordinamento e assistenza fino alla consegna finale</p>
+                              </div>
+                        </div>
+                  </div>
+            </section>
+
+            <!-- Plans Carousel Section -->
+            <section class="plans-section">
+                  <div class="container">
+                        <h2 class="section-title" data-i18n="info.plans.title">Esempi di Elaborati</h2>
+                        
+                        <div class="plans-carousel">
+                              <div class="plan-slide active">
+                                    <div class="plan-image">
+                                          <img src="../placeholder-plan1.svg" alt="Planimetria" />
+                                    </div>
+                                    <div class="plan-info">
+                                          <h3 data-i18n="info.plans.plan1.title">Planimetria Generale</h3>
+                                          <p data-i18n="info.plans.plan1.desc">Layout completo con distribuzione spazi, quote e specifiche tecniche</p>
+                                    </div>
+                              </div>
+
+                              <div class="plan-slide">
+                                    <div class="plan-image">
+                                          <img src="../placeholder-plan2.svg" alt="Prospetto" />
+                                    </div>
+                                    <div class="plan-info">
+                                          <h3 data-i18n="info.plans.plan2.title">Prospetti e Sezioni</h3>
+                                          <p data-i18n="info.plans.plan2.desc">Viste esterne e sezioni tecniche dell'edificio con dettagli costruttivi</p>
+                                    </div>
+                              </div>
+
+                              <div class="plan-slide">
+                                    <div class="plan-image">
+                                          <img src="../placeholder-plan3.svg" alt="Dettagli" />
+                                    </div>
+                                    <div class="plan-info">
+                                          <h3 data-i18n="info.plans.plan3.title">Dettagli Tecnici</h3>
+                                          <p data-i18n="info.plans.plan3.desc">Particolari costruttivi, nodi strutturali e specifiche materiali</p>
+                                    </div>
+                              </div>
+                        </div>
+
+                        <!-- Carousel Controls -->
+                        <div class="carousel-controls">
+                              <button class="carousel-btn prev-btn" id="prev-plan">
+                                    <ion-icon name="chevron-back-outline"></ion-icon>
+                              </button>
+                              <div class="carousel-dots" id="carousel-dots"></div>
+                              <button class="carousel-btn next-btn" id="next-plan">
+                                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                              </button>
+                        </div>
+                  </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="cta-section">
+                  <div class="container">
+                        <h2 data-i18n="info.cta.title">Inizia il Tuo Progetto</h2>
+                        <p data-i18n="info.cta.desc">Contattaci per una consulenza gratuita e trasforma le tue idee in realta'</p>
+                        <a href="../index.html#footer" class="cta-button" data-i18n="info.cta.button">Contattaci</a>
                   </div>
             </section>
       </div>
@@ -39,5 +168,6 @@
       <script src="../shared/navigation.js"></script>
       <script src="../shared/navigation-i18n.js"></script>
       <script src="i18n.js"></script>
+      <script src="carousel.js"></script>
 </body>
 </html>

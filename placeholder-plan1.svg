@@ -1,0 +1,12 @@
+<!-- SVG Placeholder for Plan 1 - Floor Plan -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect fill="#f0f0f0" width="800" height="600"/>
+  <rect fill="#fff" stroke="#333" stroke-width="3" x="100" y="100" width="600" height="400"/>
+  <line stroke="#333" stroke-width="2" x1="400" y1="100" x2="400" y2="500"/>
+  <line stroke="#333" stroke-width="2" x1="100" y1="300" x2="700" y2="300"/>
+  <rect fill="none" stroke="#0b468d" stroke-width="2" x1="120" y1="120" width="260" height="160"/>
+  <rect fill="none" stroke="#0b468d" stroke-width="2" x1="420" y1="120" width="260" height="160"/>
+  <rect fill="none" stroke="#0b468d" stroke-width="2" x1="120" y1="320" width="260" height="160"/>
+  <rect fill="none" stroke="#0b468d" stroke-width="2" x1="420" y1="320" width="260" height="160"/>
+  <text x="400" y="550" font-family="Arial" font-size="24" fill="#333" text-anchor="middle">PLANIMETRIA GENERALE</text>
+</svg>
