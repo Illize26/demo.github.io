@@ -2,7 +2,7 @@
 
 Sistema di navigazione centralizzato per tutti gli index del progetto.
 
-## ?? Struttura
+## Struttura
 
 ```
 shared/
@@ -12,7 +12,7 @@ shared/
 ??? navigation-i18n.js     Traduzioni menu
 ```
 
-## ?? Come usare
+## Come usare
 
 ### 1. Includi i file nel tuo HTML
 
@@ -37,9 +37,9 @@ shared/
 ### 2. Path automatici
 
 Il sistema rileva automaticamente se sei in:
-- Root: `index.html` ? usa percorso relativo `.`
-- Slider: `slider/index.html` ? usa percorso relativo `..`
-- Information: `information/index.html` ? usa percorso relativo `..`
+- Root: `index.html` -> usa percorso relativo `.`
+- Slider: `slider/index.html` -> usa percorso relativo `..`
+- Information: `information/index.html` -> usa percorso relativo `..`
 
 **Non devi modificare nulla!** Il sistema si adatta automaticamente.
 

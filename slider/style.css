@@ -201,11 +201,11 @@ button {
 }
 
 #prev:after {
-      content: "↑"
+      content: "\2191"
 }
 
 #next:after {
-      content: "↓"
+      content: "\2193"
 }
 
 

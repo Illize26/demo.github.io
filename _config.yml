@@ -1,0 +1,27 @@
+# Jekyll configuration for GitHub Pages
+encoding: UTF-8
+
+# Exclude files from processing
+exclude:
+  - node_modules/
+  - .git/
+  - .gitignore
+  - README.md
+  - slider/mobile-fix.css
+
+# Theme (GitHub Pages default)
+theme: jekyll-theme-primer
+
+# Disable Jekyll processing for static site
+include:
+  - _headers
+  - .nojekyll
+
+# Plugins
+plugins:
+  - jekyll-relative-links
+
+# Relative links config
+relative_links:
+  enabled: true
+  collections: false
