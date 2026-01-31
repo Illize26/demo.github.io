@@ -5,7 +5,7 @@
   // Traduzioni incorporate nel JS (fallback)
   var embeddedTranslations = {
     "it": {
-      "nav": { "home": "Home", "about": "Su di noi", "services": "Servizi", "team": "Il nostro team", "contact": "Contatti" },
+      "nav": { "home": "Home", "about": "Su di noi", "services": "Servizi", "information": "Competenze", "team": "Il nostro team", "contact": "Contatti" },
       "info": {
         "hero": {
           "title": "Competenze Architettoniche",
@@ -38,7 +38,7 @@
       }
     },
     "en": {
-      "nav": { "home": "Home", "about": "About", "services": "Services", "team": "Our team", "contact": "Contact" },
+      "nav": { "home": "Home", "about": "About", "services": "Services", "information": "Skills", "team": "Our team", "contact": "Contact" },
       "info": {
         "hero": {
           "title": "Architectural Expertise",
@@ -71,7 +71,7 @@
       }
     },
     "es": {
-      "nav": { "home": "Inicio", "about": "Sobre nosotros", "services": "Servicios", "team": "Nuestro equipo", "contact": "Contacto" },
+      "nav": { "home": "Inicio", "about": "Sobre nosotros", "services": "Servicios", "information": "Competencias", "team": "Nuestro equipo", "contact": "Contacto" },
       "info": {
         "hero": {
           "title": "Competencias Arquitectonicas",
